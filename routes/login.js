@@ -7,7 +7,7 @@ router.get('/', (req, res, next) => {
   if (req.query.fail)
       res.render('login', { message: 'Usuário e/ou senha incorretos!' });
   else
-      res.render('login', { message: null });
+      res.render('login', { message: false });
 });
 
 /* POST login page */

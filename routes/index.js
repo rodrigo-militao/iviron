@@ -1,11 +1,25 @@
 const router = require('express').Router();
-const path = require('path');
 const editJsonFile = require("edit-json-file");  
-const { getGeneralConfig, readCSV } = require('./utils');
-const GENERAL_CONFIG_PATH = path.join(__dirname, 'public/general_config.json');
+const { 
+  getGeneralConfig, 
+  readCSV, 
+  getAllConfig, 
+  GENERAL_CONFIG_PATH
+} = require('./utils');
 
 router.get('/', (req, res) => {
-    res.render('index');
+    getAllConfig().then(config => {
+      res.render('index', {
+        tag: config.tag,
+        localizacao: config.localizacao,
+        cliente: config.cliente
+      });
+    });
+});
+
+router.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
 });
 
 router.post('/change_chart_config_file', (req, res) => {

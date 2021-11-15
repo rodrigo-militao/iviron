@@ -35,12 +35,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 function authenticationMiddleware(req, res, next) {
-  console.log(req.isAuthenticated())
   if (req.isAuthenticated()) return next();
-  else {
-    console.log('xibiu')
-    res.render('login');
-  }
+  res.render('login', { message: false });
 }
 
 app.use('/login', loginRouter);

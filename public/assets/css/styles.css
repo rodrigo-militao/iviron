@@ -159,3 +159,8 @@ input, select  {
   background-color: #04AA6D;
   color: white;
 }
+
+#btn_logar {
+  padding: 10px 50px;
+  cursor: pointer;
+}

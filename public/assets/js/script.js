@@ -10,15 +10,6 @@ $(document).ready(() => {
   clockUpdate();
   setInterval(clockUpdate, 1000);
 
-  $.getJSON(JSON_CONFIG_FILE, function(config) {
-    tag = config.tag
-    localizacao = config.localizacao
-    cliente = config.cliente
-  }).then(() => {
-    $("#cliente").text(cliente)
-    $("#localizacao").text(localizacao)
-    $("#tag").text(tag)
-  })
 })
 
 

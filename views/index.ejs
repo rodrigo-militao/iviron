@@ -8,7 +8,6 @@
 
     <!-- Styles-->
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="stylesheet" href="./assets/js/jquery-ui/jquery-ui.min.css">
 
     <title>Inviron Camera</title>
 
@@ -16,7 +15,6 @@
    <!-- ChartJS -->
    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
-   <script src="./assets/js/papaparse.min.js"></script>
 
 </head>
 <body>
@@ -30,14 +28,14 @@
 
         <div class="">
           <p class="text-center">CAMERA RV</p>
-          <p>Localização: <span id="localizacao"></span></p>
-          <p>Cliente: <span id="cliente"></span></p>
+          <p>Localização: <span id="localizacao"><%= localizacao %></span></p>
+          <p>Cliente: <span id="cliente"><%= cliente %></span></p>
         </div>
 
         <div class="">
           <p>Data: <span id="data">19/08/2021</span></p>
           <p>Hora: <span id="hora">11:50</span></p>
-          <p>Tag: <span id="tag"></span></p>
+          <p>Tag: <span id="tag"><%= tag %></span></p>
         </div>
       </div>
     </div>
@@ -59,7 +57,7 @@
         </button>
   
         <div class="end">
-          <button id="logoutButton" class="button-tab">
+          <button id="logoutButton" class="button-tab" onclick="window.location.href = '/logout'">
             Logout
           </button>
         </div>
@@ -219,6 +217,7 @@
             <input 
               type="text"
               id="config_cliente"
+              value=<%= cliente %>
             />
           </div>
 
@@ -227,6 +226,7 @@
             <input 
               type="text"
               id="config_localizacao"
+              value=<%= localizacao %>
             />
           </div>
           <div style="margin: 16px 8px;" class="flex-column">
@@ -234,6 +234,7 @@
             <input 
               type="text"
               id="config_tag"
+              value=<%= tag %>
             />
           </div>
 
@@ -256,9 +257,7 @@
     <script src="assets/js/requisicoes.js"></script>
     <script src="assets/js/jquery.js"></script>
     <!--<script src="assets/js/jquery-ui/jquery-ui.min.js"></script>-->
-    <script>
-      const JSON_CONFIG_FILE = '../general_config.json'
-    </script>
+    
     <script src="assets/js/moment.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/graficos.js"></script>
